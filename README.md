@@ -18,7 +18,7 @@ add `/?cheater=true` to end of url to enter "Cheater" mode.
 * Ruby v2.4
 
 ## TODO
-1. Refactor
+1. ~~Refactor~~
 2. Colorize Output
 3. Limit number of guesses
 4. ~~Cheater Mode~~

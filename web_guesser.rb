@@ -7,7 +7,12 @@ number = 1 + rand(99)
 get '/' do
 	guess = params['guess']
 	cheater = params['cheater']
+	message = check_guess(guess, number, cheater)
+	erb :index, :locals => {:message => message}
+end
 
+
+def check_guess(guess, number, cheater)
 	if cheater == "true"
 		message = "The secret number is #{number} you cheater!"
 	elsif guess != nil
@@ -16,8 +21,6 @@ get '/' do
 	else
 		message = "Guess a number 1 to 100"	
 	end
-
-	erb :index, :locals => {:message => message}
 end
 
 
