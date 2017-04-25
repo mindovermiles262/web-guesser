@@ -3,13 +3,15 @@ require 'sinatra/reloader'
 
 number = 1 + rand(99)
 
-
 get '/' do
 	guess = params['guess']
 	cheater = params['cheater']
 	message = check_guess(guess, number, cheater)
 	erb :index, :locals => {:message => message}
 end
+
+
+private
 
 
 def check_guess(guess, number, cheater)
