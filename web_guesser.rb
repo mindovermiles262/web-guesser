@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 number = 1 + rand(99)
-@@guesses_remaining = 6
+@@guesses_remaining = 11
 
 get '/' do
 	guess = params['guess']
@@ -13,6 +13,10 @@ end
 
 get '/gameover' do
 	"Game Over"
+end
+
+get '/winner' do
+	"You guessed it correctly!"
 end
 
 
@@ -45,7 +49,7 @@ end
 
 def get_message(guess, number)
 	if guess == number
-		"You guessed it"
+		redirect '/winner'
 	elsif guess > number # guess is too high
 		if guess - number > 5
 			"#{guess} is way too high!"
