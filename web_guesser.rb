@@ -1,5 +1,5 @@
 require 'sinatra'
-if deployment? require 'sinatra/reloader'
+# require 'sinatra/reloader'
 
 @@number = 1 + rand(99)
 @@guesses_remaining = 6
