@@ -1,5 +1,5 @@
 require 'sinatra'
-if deployment? 
+if development ? 
 	require 'sinatra/reloader'
 end
 
