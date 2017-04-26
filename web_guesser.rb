@@ -1,7 +1,5 @@
 require 'sinatra'
-if development ? 
-	require 'sinatra/reloader'
-end
+require 'sinatra/reloader' if development?
 
 @@number = 1 + rand(99)
 @@guesses_remaining = 6
