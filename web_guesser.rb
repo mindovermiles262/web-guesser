@@ -1,15 +1,14 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-number = 1 + rand(99)
-@@guesses_remaining = 11
-
+@@number = 1 + rand(99)
+@@guesses_remaining = 6
 
 get '/' do
 	guess = params['guess']
 	cheater = params['cheater']
-	message = check_guess(guess, number, cheater)
-	color = get_color(guess.to_i - number)
+	message = check_guess(guess, @@number, cheater)
+	color = get_color(guess, @@number)
 	erb :index, :locals => {:message => message, 
 							:remaining_message => remaining_message,
 							:color => color }
@@ -17,23 +16,38 @@ end
 
 get '/gameover' do
 	erb :gameover
+
 end
 
 get '/winner' do
-	erb :winner, :locals => {:number => number}
+	erb :winner, :locals => {:number => @@number}
+end
+
+get '/reset' do
+	reset
+	redirect '/'
 end
 
 
 private
 
 
-def get_color(difference)
-	if difference == 0
-		"green"
-	elsif difference.between?(1,5) || difference.between?(-5,-1)
-		"#ff7f7f"
-	else
-		"red"
+def reset
+	@@number = 1 + rand(99)
+	@@guesses_remaining = 6
+end
+
+
+def get_color(guess, number)
+	if guess != nil
+		difference = guess.to_i - number
+		if difference == 0
+			"green"
+		elsif difference.between?(1,5) || difference.between?(-5,-1)
+			"#ff7f7f"
+		else
+			"red"
+		end
 	end
 end
 
@@ -62,20 +76,23 @@ end
 
 
 def get_message(guess, number)
-	if guess == number
-		redirect '/winner'
-		# "Winner!"
-	elsif guess > number # guess is too high
-		if guess - number > 5
-			"#{guess} is way too high!"
-		else
-			"#{guess} is high"
-		end
-	else # guess is too low
-		if number - guess > 5
-			"#{guess} is way too low"
-		else
-			"#{guess} is low"
+	if guess != nil
+		guess = guess.to_i
+		if guess == number
+			redirect '/winner'
+			# "Winner!"
+		elsif guess > number # guess is too high
+			if guess - number > 5
+				"#{guess} is way too high!"
+			else
+				"#{guess} is high"
+			end
+		else # guess is too low
+			if number - guess > 5
+				"#{guess} is way too low"
+			else
+				"#{guess} is low"
+			end	
 		end	
-	end	
+	end
 end
