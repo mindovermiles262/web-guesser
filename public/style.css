@@ -1,10 +1,13 @@
 body {
-	background-color: #8f8f8f;
+	text-align: center;
 }
+
 h1 {
-	font-size: 5em;
+	font-size: 10em;
 	color: red;
+	background: black;
 }
+
 p {
 	color: blue;
 }

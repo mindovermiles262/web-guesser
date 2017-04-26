@@ -2,10 +2,17 @@
 	<head>
 		<title>Sinatra Web Guesser</title>
 		<link href="/style.css" rel="stylesheet" type="text/css" />
+		<style>
+			body {
+				background: <%= color %>;
+			}
+
+		</style>
 	</head>
 
 	<body>
 		<p><%= remaining_message %></p>
+
 		<p><%= message %></p>
 
 		<form>
@@ -14,6 +21,5 @@
 		</form>
 		
 	</body>
-
 </html>
 
