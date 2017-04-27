@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    backports (3.7.0)
+    backports (3.8.0)
     multi_json (1.12.1)
     rack (1.6.5)
     rack-protection (1.5.3)
@@ -25,8 +25,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  sinatra (~> 1.4.8)
-  sinatra-contrib (~> 1.4.7)
+  sinatra (>= 1.4.8)
+  sinatra-contrib (>= 1.4.7)
 
 RUBY VERSION
    ruby 2.4.0p0
