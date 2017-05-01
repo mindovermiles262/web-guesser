@@ -15,8 +15,7 @@ get '/' do
 end
 
 get '/gameover' do
-	erb :gameover
-
+	erb :gameover, :locals => {:number => @@number}
 end
 
 get '/winner' do
