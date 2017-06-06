@@ -1,25 +1,25 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 
-@@number = 1 + rand(99)
+number = 1 + rand(99)
 @@guesses_remaining = 6
 
 get '/' do
 	guess = params['guess']
 	cheater = params['cheater']
-	message = check_guess(guess, @@number, cheater)
-	color = get_color(guess, @@number)
+	message = check_guess(guess, number, cheater)
+	color = get_color(guess, number)
 	erb :index, :locals => {:message => message, 
 							:remaining_message => remaining_message,
 							:color => color }
 end
 
 get '/gameover' do
-	erb :gameover, :locals => {:number => @@number}
+	erb :gameover, :locals => {:number => number}
 end
 
 get '/winner' do
-	erb :winner, :locals => {:number => @@number}
+	erb :winner, :locals => {:number => number}
 end
 
 get '/reset' do
@@ -32,7 +32,7 @@ private
 
 
 def reset
-	@@number = 1 + rand(99)
+	number = 1 + rand(99)
 	@@guesses_remaining = 6
 end
 
