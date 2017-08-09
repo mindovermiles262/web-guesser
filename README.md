@@ -8,7 +8,7 @@ From [The Odin Project's](http://theodinproject.com) [Ruby on Rails](http://www.
 ## Use
 Download all files, then run `ruby web_guesser.rb` to start server. Navigate web browser to `http://localhost:4567/` to play.
 
-Alternativly, an online version can be found [here](https://glacial-wave-21325.herokuapp.com/)
+Alternatively, an online version can be found [here](https://glacial-wave-21325.herokuapp.com/)
 
 ### Cheater Mode
 add `&cheater=true` to end of url to enter "Cheater" mode.
